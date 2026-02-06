@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="피카의 포트폴리오 — AI 활용능력 스터디로 나만의 웹사이트로 만들어가는 중." />
+  <title>피카 AI 포트폴리오</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#top">본문으로 건너뛰기</a>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">Pika</a>
+
+      <nav class="nav nav-desktop" aria-label="Primary">
+        <a href="#about">소개</a>
+        <a href="#projects">프로젝트</a>
+      </nav>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+      >
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden>
+      <a href="#about" class="mobile-nav-link">소개</a>
+      <a href="#projects" class="mobile-nav-link">프로젝트</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="section hero" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-tools" aria-label="상단 배경 설정">
+          <button
+            class="icon-btn"
+            id="heroBgEditBtn"
+            type="button"
+            aria-label="배경 편집 열기"
+            aria-expanded="false"
+            aria-controls="heroBgEditor"
+            title="배경 편집"
+          >✎</button>
+
+          <div class="hero-bg-editor" id="heroBgEditor" hidden>
+            <input id="heroBgInput" class="sr-only" type="file" accept="image/*" />
+
+            <div class="hero-bg-row">
+              <button class="btn btn-ghost btn-sm" id="heroBgBtn" type="button">이미지 선택</button>
+              <button class="btn btn-ghost btn-sm" id="heroBgClearBtn" type="button">제거</button>
+              <button class="btn btn-primary btn-sm" id="heroBgDoneBtn" type="button">수정 완료</button>
+            </div>
+            <p class="text muted hero-bg-help">권장: 가로 1600~2000px · 1MB 이하(JPG/WEBP)</p>
+
+            <div class="hero-pos-controls" aria-label="배경 위치 조절">
+              <p class="text muted hero-pos-title">이미지 세로 위치 조절</p>
+              <label class="sr-only" for="heroBgPosY">배경 세로 위치</label>
+              <input id="heroBgPosY" class="range" type="range" min="0" max="100" value="50" />
+
+              <p class="text muted hero-pos-title">투명도 조절</p>
+              <label class="sr-only" for="heroBgOpacity">배경 투명도</label>
+              <input id="heroBgOpacity" class="range" type="range" min="0" max="100" value="22" />
+            </div>
+          </div>
+        </div>
+        <h1 class="h1">피카의 AI 활용능력 기르기</h1>
+        <p class="lead">
+            피카의 포트폴리오 — AI 활용능력 스터디로 나만의 웹사이트로 만들어가는 중.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
+          <a class="btn btn-ghost" href="#about">소개 보기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section section-tight" id="skills">
+      <div class="container">
+        <div class="skills-shell">
+          <div class="section-head section-head-skills">
+            <div class="section-head-left">
+              <h2 class="h2">툴 활용능력</h2>
+              <p class="text muted">작업하면서 계속 업데이트 중</p>
+            </div>
+
+            <button
+              class="skill-fab"
+              id="skillFab"
+              type="button"
+              aria-label="새 툴 추가 열기"
+              aria-expanded="false"
+              aria-controls="skillDrawer"
+              title="새 툴 추가"
+            >+</button>
+          </div>
+
+          <div class="skill-overlay" id="skillOverlay" hidden></div>
+          <aside class="skill-drawer" id="skillDrawer" aria-label="새 툴 추가" hidden>
+            <div class="skill-drawer-head">
+              <p class="text"><strong>새 툴 추가</strong></p>
+              <button class="skill-drawer-close" id="skillDrawerClose" type="button" aria-label="닫기">×</button>
+            </div>
+            <p class="text muted skill-add-note">추가한 항목은 이 브라우저에 저장돼요.</p>
+
+            <form class="skill-form" id="skillForm" autocomplete="off">
+              <label class="sr-only" for="skillName">툴 이름</label>
+              <input class="input" id="skillName" name="skillName" type="text" placeholder="예: Vercel" required maxlength="30" />
+
+              <label class="sr-only" for="skillPercent">퍼센트</label>
+              <input class="input" id="skillPercent" name="skillPercent" type="number" min="0" max="100" step="1" placeholder="0~100" value="60" required />
+
+              <label class="sr-only" for="skillDesc">설명</label>
+              <input class="input" id="skillDesc" name="skillDesc" type="text" placeholder="예: 배포 · 도메인" maxlength="40" />
+
+              <button class="btn btn-primary" type="submit" id="skillAddBtn">추가</button>
+            </form>
+          </aside>
+        </div>
+
+        <div class="skills-grid" id="skillsGrid">
+          <div class="skill-card" data-skill-id="figma-make" data-skill-builtin="true">
+            <div class="skill-top">
+              <span class="skill-name">Figma (Make)</span>
+              <span class="skill-level">72%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-label="Figma (Make)" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill-fill" style="width:72%"></span>
+            </div>
+            <p class="text muted skill-desc">화면 설계 · 컴포넌트 정리</p>
+          </div>
+
+          <div class="skill-card" data-skill-id="cursor" data-skill-builtin="true">
+            <div class="skill-top">
+              <span class="skill-name">Cursor</span>
+              <span class="skill-level">78%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-label="Cursor" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill-fill" style="width:78%"></span>
+            </div>
+            <p class="text muted skill-desc">빠른 구현 · 리팩터링</p>
+          </div>
+
+          <div class="skill-card" data-skill-id="framer" data-skill-builtin="true">
+            <div class="skill-top">
+              <span class="skill-name">Framer</span>
+              <span class="skill-level">55%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-label="Framer" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill-fill" style="width:55%"></span>
+            </div>
+            <p class="text muted skill-desc">프로토타이핑 · 모션</p>
+          </div>
+
+          <div class="skill-card" data-skill-id="notion" data-skill-builtin="true">
+            <div class="skill-top">
+              <span class="skill-name">Notion</span>
+              <span class="skill-level">70%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-label="Notion" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill-fill" style="width:70%"></span>
+            </div>
+            <p class="text muted skill-desc">정리 · 문서화 · 체크리스트</p>
+          </div>
+
+          <div class="skill-card" data-skill-id="github" data-skill-builtin="true">
+            <div class="skill-top">
+              <span class="skill-name">GitHub</span>
+              <span class="skill-level">60%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-label="GitHub" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill-fill" style="width:60%"></span>
+            </div>
+            <p class="text muted skill-desc">버전관리 · 이슈/PR 흐름</p>
+          </div>
+
+          <div class="skill-card" data-skill-id="chatgpt" data-skill-builtin="true">
+            <div class="skill-top">
+              <span class="skill-name">ChatGPT</span>
+              <span class="skill-level">74%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-label="ChatGPT" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill-fill" style="width:74%"></span>
+            </div>
+            <p class="text muted skill-desc">아이디어 · 문장 다듬기 · 디버깅 보조</p>
+          </div>
+        </div>
+        <p class="text muted skill-hint">추가는 우측 <strong>+</strong>, 수정은 각 카드의 <strong>✎</strong> 버튼을 눌러주세요.</p>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="h2">소개</h2>
+        
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <img id="profileImg" class="profile-img" alt="프로필 이미지" />
+            <div id="profileFallback" class="profile-fallback" aria-hidden="true">P</div>
+            <input id="profileImgInput" class="sr-only" type="file" accept="image/*" />
+          </div>
+
+          <div class="profile-body">
+            <button
+              class="icon-btn profile-edit-btn"
+              id="profileEditBtn"
+              type="button"
+              aria-label="프로필 수정 열기"
+              aria-expanded="false"
+              aria-controls="profileEditor"
+              title="프로필 수정"
+            >✎</button>
+
+            <div class="profile-head">
+              <p class="profile-name" id="profileName" contenteditable="false" spellcheck="false" aria-label="이름">Pika</p>
+              <p class="profile-role" id="profileRole" contenteditable="false" spellcheck="false" aria-label="직무/한줄 소개">UX/UI designer</p>
+            </div>
+
+            <p class="profile-bio text muted" id="profileBio" contenteditable="false" spellcheck="false" aria-label="소개 문구">
+              안녕하세요, 피카입니다. 작은 실험을 빠르게 만들고 고쳐나가는 걸 좋아해요.
+            </p>
+
+            <div class="profile-editor" id="profileEditor" hidden>
+              <div class="profile-actions">
+                <button class="btn btn-ghost btn-sm" id="profileImgBtn" type="button">사진 변경</button>
+                <button class="btn btn-ghost btn-sm" id="profileImgRemoveBtn" type="button">사진 제거</button>
+              </div>
+              <p class="text muted profile-edit-hint">텍스트를 클릭해서 수정한 뒤, 수정 완료를 눌러 저장하세요.</p>
+              <div class="profile-edit-actions">
+                <button class="btn btn-primary btn-sm" id="profileDoneBtn" type="button">수정 완료</button>
+                <button class="btn btn-ghost btn-sm" id="profileCancelBtn" type="button">취소</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="info-card card-interest">
+            <h3 class="h3">관심사</h3>
+            <p class="text muted">AI 활용 · 웹 UI · 자동화</p>
+          </div>
+
+          <div class="info-card card-strength">
+            <h3 class="h3">강점</h3>
+            <p class="text muted">빠르게 만들고 → 피드백 받고 → 개선</p>
+          </div>
+
+          <div class="info-card card-goal">
+            <h3 class="h3">다음 목표</h3>
+            <p class="text muted">프로젝트 늘리고 배포 링크 붙이기</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="h2">프로젝트</h2>
+          <p class="text muted">지금은 1개, 곧 더 추가될 예정이에요.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- 프로젝트 1: 카피바라 토글 데모 -->
+          <div class="project-card">
+            <span class="project-num">01</span>
+            <h3 class="h3">카피바라 토글 데모</h3>
+            <p class="text muted">
+              등장 애니메이션은 부드럽게, 사라질 때는 즉시.
+            </p>
+            <div class="tags" aria-label="태그">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+
+            <div class="demo-card">
+              <p id="introText" class="text muted">
+                이건 Cursor로 만든 첫 화면이야. 라바씨! 이 버튼을 눌러줘.
+              </p>
+
+              <div id="result" style="display:none; text-align:center; margin:16px 0;">
+                <img
+                  src="assets/capybara.jpg"
+                  alt="카피바라"
+                  class="demo-img"
+                />
+                <p class="demo-say">카~피~바라~~ 카~피~바라~~ 👋</p>
+              </div>
+
+              <button id="ctaBtn" class="btn btn-brown">카피바라</button>
+            </div>
+          </div>
+
+          <!-- 프로젝트 2: 준비 중 -->
+          <div class="project-card project-empty">
+            <span class="project-num">02</span>
+            <h3 class="h3">다음 프로젝트</h3>
+            <p class="text muted">준비 중...</p>
+            <div class="empty-placeholder">
+              <span class="empty-icon" aria-hidden="true">🚀</span>
+              <p class="text muted">곧 새로운 프로젝트가 추가될 예정이에요</p>
+            </div>
+            <button class="btn btn-disabled" type="button" disabled>준비 중</button>
+          </div>
+
+          <!-- 프로젝트 3: 준비 중 -->
+          <div class="project-card project-empty">
+            <span class="project-num">03</span>
+            <h3 class="h3">다음 프로젝트</h3>
+            <p class="text muted">준비 중...</p>
+            <div class="empty-placeholder">
+              <span class="empty-icon" aria-hidden="true">✨</span>
+              <p class="text muted">아이디어를 구상하는 중이에요</p>
+            </div>
+            <button class="btn btn-disabled" type="button" disabled>준비 중</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="text muted">© <span id="year"></span> Pika</p>
+      <a class="text muted" href="#top">맨 위로</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

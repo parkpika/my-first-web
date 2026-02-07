@@ -343,6 +343,25 @@
     </div>
   </footer>
 
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyB9caRTWa0IBnSfDaR02Bv2_ddDZBtaA_I",
+      authDomain: "pika-portfolio-5b131.firebaseapp.com",
+      projectId: "pika-portfolio-5b131",
+      storageBucket: "pika-portfolio-5b131.firebasestorage.app",
+      messagingSenderId: "999192820481",
+      appId: "1:999192820481:web:2e128e33c86e15b321f900",
+      measurementId: "G-8FJK9XE8L8"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  
   <script src="js/main.js"></script>
-</body>
-</html>
+  </body>
+  </html>
+  

@@ -1,3 +1,11 @@
+// 🔒 관리자용 버튼들 숨기기 (로그인 전)
+document.addEventListener("DOMContentLoaded", () => {
+  const adminOnlySelectors = ["#profileEditBtn", "#heroBgEditBtn", "#skillFab"];
+  adminOnlySelectors.forEach(sel => {
+    const el = document.querySelector(sel);
+    if (el) el.style.display = "none";
+  });
+});
 // 카피바라 데모
 const btn = document.getElementById("ctaBtn");
 const result = document.getElementById("result");
